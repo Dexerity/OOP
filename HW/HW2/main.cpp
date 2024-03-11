@@ -1,7 +1,4 @@
 #include <iostream>
-#include "osoba.h"
-#include "adresa.h"
-#include "polozkaFaktury.h"
 #include "faktura.h"
 
 using namespace std;
