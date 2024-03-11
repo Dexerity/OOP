@@ -3,16 +3,18 @@
 
 using namespace std;
 
-Faktura::Faktura(int cisloFaktury, Osoba* osoba, Adresa* adresa)
+Faktura::Faktura(int cisloFaktury, Osoba* osoba, Adresa* adresa, int pocetPolozek)
 {
     this->cisloFaktury = cisloFaktury;
     this->osoba = osoba;
     this->adresa = adresa;
+    this->pocetPolozek = pocetPolozek;
+    this->polozky = new PolozkaFaktury* [pocetPolozek];
 }
 
 void Faktura::pridatPolozku(PolozkaFaktury* polozka)
 {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < this->pocetPolozek; i++)
     {
         if (this->polozky[i] == nullptr)
         {
@@ -20,8 +22,6 @@ void Faktura::pridatPolozku(PolozkaFaktury* polozka)
             break;
         }
     }
-
-    pocetPolozek++;
 }
 
 Faktura::~Faktura()
@@ -41,7 +41,10 @@ double Faktura::finalPrice()
 
     for (int i = 0; i < this->pocetPolozek; i++)
     {
-        price += this->polozky[i]->getCena();
+        if (this->polozky[i] != nullptr)
+        {
+            price += this->polozky[i]->getCena();
+        }
     }
 
     return price;
@@ -58,7 +61,10 @@ void Faktura::printFaktura()
     cout << "Polozky: " << endl;
     for (int i = 0; i < this->pocetPolozek; i++)
     {
-        cout << this->polozky[i]->getNazev() << " - " << this->polozky[i]->getCena() << endl;
+        if (this->polozky[i] != nullptr)
+        {
+            cout << this->polozky[i]->getNazev() << " - " << this->polozky[i]->getCena() << endl;            
+        }
     }
 
     cout << "Celkova cena: " << this->finalPrice() << endl;

@@ -8,7 +8,7 @@ using namespace std;
 
 class Faktura{
 public:
-    Faktura(int cisloFaktury, Osoba* osoba, Adresa* adresa);
+    Faktura(int cisloFaktury, Osoba* osoba, Adresa* adresa, int pocetPolozek);
     void pridatPolozku(PolozkaFaktury* polozka);
     ~Faktura();
     double finalPrice();
@@ -17,6 +17,6 @@ private:
     int cisloFaktury;
     Osoba* osoba;
     Adresa* adresa;
-    PolozkaFaktury* polozky[10];
-    int pocetPolozek = 0;
+    PolozkaFaktury** polozky;
+    int pocetPolozek;
 };
