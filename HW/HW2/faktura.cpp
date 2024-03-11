@@ -1,48 +1,7 @@
-#include "classes.h"
+#include "faktura.h"
 #include <iostream>
 
 using namespace std;
-
-Osoba::Osoba(string jmeno, string prijmeni)
-{
-    this->jmeno = jmeno;
-    this->prijmeni = prijmeni;
-}
-
-string Osoba::getName()
-{
-    return this->jmeno + " " + this->prijmeni;
-}
-
-Adresa::Adresa(string ulice, string cisloPopisne, string mesto, string psc)
-{
-    this->ulice = ulice;
-    this->cisloPopisne = cisloPopisne;
-    this->mesto = mesto;
-    this->psc = psc;
-}
-
-void Adresa::printAdress()
-{
-    cout << this->ulice << " " << this->cisloPopisne << endl;
-    cout << this->psc << " " << this->mesto << endl;
-}
-
-PolozkaFaktury::PolozkaFaktury(string nazev, double cena)
-{
-    this->nazev = nazev;
-    this->cena = cena;
-}
-
-string PolozkaFaktury::getNazev()
-{
-    return this->nazev;
-}
-
-double PolozkaFaktury::getCena()
-{
-    return this->cena;
-}
 
 Faktura::Faktura(int cisloFaktury, Osoba* osoba, Adresa* adresa)
 {

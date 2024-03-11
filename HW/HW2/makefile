@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -g
 
-main: main.cpp classes.cpp classes.h
-	$(CC) $(CFLAGS) -o main main.cpp classes.cpp
+main: main.cpp osoba.cpp adresa.cpp polozkaFaktury.cpp faktura.cpp
+	$(CC) $(CFLAGS) -o main main.cpp osoba.cpp adresa.cpp polozkaFaktury.cpp faktura.cpp
 
 clean:
 	rm -f main
