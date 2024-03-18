@@ -21,14 +21,32 @@ int main(){
         arr2->arrInsert(array2[i]);
     }
 
+    cout<<"array 1:"<<endl;
+
+    for (int i = 0; i < arr1->getCount(); i++)
+    {
+        cout<<arr1->getAt(i)<<" ";
+    }
+
+    cout<<endl<<"array 2:"<<endl;
+
+    for (int i = 0; i < arr2->getCount(); i++)
+    {
+        cout<<arr2->getAt(i)<<" ";
+    }
+
+    cout<<endl;
+
     ExtendedArray* arr3 = arr1->merge(arr2);
 
     cout<<"Merge:"<<endl;
 
     for (int i = 0; i < arr3->getCount(); i++)
     {
-        cout<<arr3->getAt(i)<<endl;
+        cout<<arr3->getAt(i)<<" ";
     }
+
+    cout<<endl;
     
     ExtendedArray* arr4 = arr1->intersect(arr2);
 
@@ -36,8 +54,10 @@ int main(){
 
     for (int i = 0; i < arr4->getCount(); i++)
     {
-        cout<<arr4->getAt(i)<<endl;
+        cout<<arr4->getAt(i)<<" ";
     }
+
+    cout<<endl;
 
     return 0;
 }
