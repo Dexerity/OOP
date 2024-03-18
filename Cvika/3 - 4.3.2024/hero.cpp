@@ -1,11 +1,22 @@
 #include "hero.h"
 #include "sword.h"
 
+int Hero::heroesAlive = 0;
+
 Hero::Hero(double baseDmg, double HP)
 {
     this->baseDmg = baseDmg;
     this->HP = HP;
     this->sword = nullptr;
+    heroesAlive++;
+}
+
+Hero::Hero(double baseDmg, double HP, Sword* sword)
+{
+    this->baseDmg = baseDmg;
+    this->HP = HP;
+    this->sword = sword;
+    heroesAlive++;
 }
 
 bool Hero::isAlive()
@@ -30,6 +41,10 @@ void Hero::equipSword(Sword* sword)
 
 void Hero::getHit(double dmg){
     this->HP -= dmg;
+    if(this->HP <= 0)
+    {
+        heroesAlive--; 
+    }
 }
 
 Hero::~Hero()
@@ -43,5 +58,11 @@ void Hero::attack(Hero* enemy){
         enemy->getHit(this->baseDmg + this->sword->getDmg());
     else
         enemy->getHit(this->baseDmg);
+}
 
+Hero* Hero::createStarterHero(double baseDmg, double HP)
+{
+    Hero* hero = new Hero(baseDmg, HP);
+    hero->equipSword(new Sword(5));
+    return nullptr;
 }

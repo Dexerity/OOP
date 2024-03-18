@@ -41,7 +41,7 @@ void ExtendedArray::arrInsert(int x)
 
 ExtendedArray* ExtendedArray::merge(ExtendedArray* array)
 {
-    ExtendedArray* arr = new ExtendedArray(this->count + array->count);
+    ExtendedArray* arr = new ExtendedArray(this->count + array->getCount());
     
     for (int i = 0; i < this->count; i++)
     {
@@ -49,7 +49,7 @@ ExtendedArray* ExtendedArray::merge(ExtendedArray* array)
         arr->count++;
     }
     
-    for (int i = 0; i < array->count; i++)
+    for (int i = 0; i < array->getCount(); i++)
     {
         arr->array[i + this->count] = array->array[i];
         arr->count++;
