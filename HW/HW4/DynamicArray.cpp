@@ -3,24 +3,26 @@
 
 using namespace std;
 
+static int defaultSize = 10;
+
 DynamicArray::DynamicArray()
 {
-    size = defaultSize;
-    count = 0;
-    arr = new int[defaultSize];
+    this->size = defaultSize;
+    this->count = 0;
+    this->arr = new int[defaultSize];
 }
 
 DynamicArray::DynamicArray(int n)
 {
     this->size = n;
-    count = 0;
-    arr = new int[n];
+    this->count = 0;
+    this->arr = new int[n];
 }
 
 DynamicArray::DynamicArray(int* arr, int length)
 {
     this->size = length * 2;
-    count = length;
+    this->count = length;
     this->arr = new int[length * 2];
 
     for (int i = 0; i < length; i++)
@@ -31,7 +33,7 @@ DynamicArray::DynamicArray(int* arr, int length)
 
 int DynamicArray::getAt(int index)
 {
-    if (index < 0 || index >= count)
+    if (index < 0 || index >= getCount())
     {
         cout<<"Out of bounds"<<endl;
     }
@@ -41,22 +43,37 @@ int DynamicArray::getAt(int index)
 
 void DynamicArray::setAt(int index, int value)
 {
-    if (index < 0 || index >= size)
+    if (index < 0 || index >= getSize())
     {
         cout<<"Out of bounds"<<endl;
     }
 
     arr[index] = value;
 
-    if (index >= count)
+    if (index >= getCount())
     {
-        count = index + 1;
+        setCount(index + 1);
     }
 }
 
 int DynamicArray::getCount()
 {
     return this->count;
+}
+
+int DynamicArray::getSize()
+{
+    return this->size;
+}
+
+void DynamicArray::setCount(int value)
+{
+    this->count = value;
+}
+
+void DynamicArray::setSize(int value)
+{
+    this->size = value;
 }
 
 DynamicArray* DynamicArray::repeat(int n, int initValue)
@@ -68,7 +85,7 @@ DynamicArray* DynamicArray::repeat(int n, int initValue)
         newArray->setAt(i, initValue);
     }
 
-    newArray->count = n;
+    newArray->setCount(n);
 
     return newArray;
 }
@@ -89,28 +106,27 @@ DynamicArray* DynamicArray::range(int start, int end)
         newArray->setAt(i - start, i);
     }
 
-    newArray->count = end - start + 1;
+    newArray->setCount(end - start + 1);
     return newArray;
 }
 
 void DynamicArray::Add(int value)
 {
-    if (count >= size)
+    if (getCount() >= getSize())
     {
-        int* newArr = new int[size * 2];
+        int* newArr = new int[getSize() * 2];
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < getSize(); i++)
         {
             newArr[i] = arr[i];
         }
 
-        delete[] arr;
-        arr = newArr;
-        size *= 2;
+        delete this->arr;
+        this->arr = newArr;
+        setSize(getSize() * 2);
     }
 
-    arr[count] = value;
-    count++;
+    arr[count++] = value;
 }
 
 DynamicArray::~DynamicArray()
