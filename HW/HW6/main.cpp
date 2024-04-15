@@ -11,11 +11,17 @@ int main(){
     Vehicle *v2 = new Boat(200, 50000, "Titanic");
     Vehicle *v3 = new Bike(30, 10, "BMX");
 
+    cout << endl;
+
     v1->info();
     v1->move();
 
+    cout << endl;
+
     v2->info();
     v2->move();
+
+    cout << endl;
 
     v3->info();
     v3->move();

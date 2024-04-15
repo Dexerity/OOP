@@ -20,7 +20,7 @@ Vehicle::Vehicle()
 
 void Vehicle::info() 
 {
-    cout << name << " has a max speed of " << maxSpeed << " km/h and weighs " << weight << " kgs." << endl;
+    cout << getName() << " has a max speed of " << getMaxSpeed() << " km/h and weighs " << getWeight() << " kgs." << endl;
 }
 
 int Vehicle::getMaxSpeed() 
