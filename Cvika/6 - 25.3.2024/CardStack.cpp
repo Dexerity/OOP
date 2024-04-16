@@ -49,7 +49,14 @@ void CardStack::shuffle()
     
 }
 
-CardStackIterator* CardStack::getIterator()
+IIterator* CardStack::getIterator()
 {
     return new CardStackIterator(this->data, this->top);
+}
+
+CardStack* CardStack::createSevenToAceDeck()
+{
+    string numbers = "7 8 9 10 J Q K A";
+    string symbols = "\u2665 \u2666 \u2660 \u2663";\
+    return nullptr;
 }

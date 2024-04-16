@@ -2,10 +2,11 @@
 #include <vector>
 #include "Card.h"
 #include "CardStackIterator.h"
+#include "ICollection.h"
 
 using namespace std;
 
-class CardStack{
+class CardStack : public ICollection{
 public:
     CardStack(int size);
     ~CardStack();
@@ -15,7 +16,7 @@ public:
     Card* pop();
     bool isEmpty();
     void shuffle();
-    CardStackIterator* getIterator();
+    IIterator* getIterator();
 private:
     int top;
     vector<Card*> data;

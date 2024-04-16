@@ -8,7 +8,7 @@ int main(){
 
     deck->shuffle();
 
-    CardStackIterator* it = deck->getIterator();
+    IIterator* it = deck->getIterator();
     while (it->hasNext())
     {
         Card* card = it->next();

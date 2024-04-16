@@ -1,10 +1,11 @@
 #pragma once
 #include "Card.h"
+#include "IIterator.h"
 #include <vector>
 
 using namespace std;
 
-class CardStackIterator{
+class CardStackIterator : public IIterator{
 public:
     CardStackIterator(vector<Card*> data, int top);
     Card* next();
