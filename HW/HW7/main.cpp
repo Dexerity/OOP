@@ -19,6 +19,8 @@ int main(){
 
     inventory->useItem(0);
     inventory->useItem(2);
+
+    
     
 
     

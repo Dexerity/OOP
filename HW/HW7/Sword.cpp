@@ -18,4 +18,5 @@ string Sword::toString()
 void Sword::use(Hero* hero)
 {
     hero->equipSword(this);
+    cout << "Equipped " << this->name << endl;
 }
