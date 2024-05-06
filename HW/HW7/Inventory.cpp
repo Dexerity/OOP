@@ -3,6 +3,11 @@
 
 using namespace std;
 
+Inventory::Inventory(Hero* hero)
+{
+    this->hero = hero;
+}
+
 void Inventory::addToInventory(Item* item)
 {
     this->items.push_back(item);
@@ -19,4 +24,9 @@ void Inventory::printAllItems()
     {
         cout << this->items[i]->toString() << endl;
     }
+}
+
+void Inventory::useItem(int index)
+{
+    this->items.at(index)->use(hero);
 }

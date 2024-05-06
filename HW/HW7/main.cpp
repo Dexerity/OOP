@@ -9,12 +9,19 @@ int main(){
     Sword* sword1 = new Sword(10, "Excalibur");
     Sword* sword2 = new Sword(20, "Doombringer");
     Armor* armor = new Armor(10, "Steel Armor");
+    Inventory* inventory = new Inventory(hero);
 
-    hero->equipSword(sword1);
-    hero->equipArmor(armor);
-    hero->addToInventory(sword2);
+    inventory->addToInventory(sword1);
+    inventory->addToInventory(sword2);
+    inventory->addToInventory(armor);
 
-    hero->printAllItems();
+    inventory->printAllItems();
+
+    inventory->useItem(0);
+    inventory->useItem(2);
+    
+
+    
 
     
 

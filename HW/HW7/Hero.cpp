@@ -1,4 +1,6 @@
 #include "Hero.h"
+#include "Sword.h"
+#include "Armor.h"
 
 using namespace std;
 
@@ -10,14 +12,12 @@ Hero::Hero(double HP, double baseDmg) : Sprite(HP, baseDmg)
 void Hero::equipSword(Sword* sword)
 {
     this->sword = sword;
-    inventory.addToInventory(sword);
 }
 
 void Hero::equipArmor(Armor* armor)
 {
     this->armor = armor;
     this->setBaseArmor(armor->getArmor());
-    inventory.addToInventory(armor);
 }
 
 Hero* Hero::createStarterHero()
@@ -40,14 +40,4 @@ void Hero::attack(Sprite* targetSprite)
 	{
 		std::cout << "Enemy sprite has been killed" << std::endl;
 	}
-}
-
-void Hero::addToInventory(Item* item)
-{
-    inventory.addToInventory(item);
-}
-
-void Hero::printAllItems()
-{
-    inventory.printAllItems();
 }

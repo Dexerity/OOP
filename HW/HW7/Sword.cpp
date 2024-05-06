@@ -14,3 +14,8 @@ string Sword::toString()
 {
     return this->name + " (+" + to_string(this->addedDmg) + " dmg)";
 }
+
+void Sword::use(Hero* hero)
+{
+    hero->equipSword(this);
+}

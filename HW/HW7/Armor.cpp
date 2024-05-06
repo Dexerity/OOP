@@ -16,3 +16,8 @@ string Armor::toString()
 {
     return this->name + " (+" + to_string(this->addedArmor) + " armor)";
 }
+
+void Armor::use(Hero* hero)
+{
+    hero->equipArmor(this);
+}

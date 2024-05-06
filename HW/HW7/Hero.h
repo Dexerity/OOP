@@ -1,9 +1,8 @@
 #pragma once
-
-#include "Inventory.h"
 #include "Sprite.h"
-#include "Sword.h"
-#include "Armor.h"
+
+class Sword;
+class Armor;
 
 using namespace std;
 
@@ -15,11 +14,8 @@ public:
     void equipArmor(Armor* armor);
     static Hero* createStarterHero();
     void attack(Sprite* enemy);
-    void addToInventory(Item* item);
-    void printAllItems();
 private:
     Sword* sword;
     Armor* armor;
-    Inventory inventory;
 };
 
